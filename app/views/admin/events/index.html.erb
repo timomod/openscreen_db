@@ -1,0 +1,19 @@
+<h1>Admin/Events#Index</h1>
+
+<h2>Events List</h2>
+<%= @events.each do |event| %>
+  <h3><%= event.title %></h3>
+  <p><%= event.subtitle %></p>
+  <p><%= event.description %></p>
+
+  <h4>Films at event:</h4>
+  <%if event.films != [] %>
+    <%= event.films.each do |film| %>
+      <p><%= film.title %></p>
+
+      <%end %>
+  <% else %>
+    <p>This event has no films!</p>
+  <% end %>
+
+<% end %>

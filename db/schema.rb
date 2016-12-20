@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201081448) do
+ActiveRecord::Schema.define(version: 20161220134317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20161201081448) do
 
   add_index "program_items", ["event_id"], name: "index_program_items_on_event_id", using: :btree
   add_index "program_items", ["film_id"], name: "index_program_items_on_film_id", using: :btree
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "street_number"
+    t.string   "address_01"
+    t.string   "address_02"
+    t.string   "country"
+    t.string   "google_map"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   add_foreign_key "program_items", "events"
   add_foreign_key "program_items", "films"
